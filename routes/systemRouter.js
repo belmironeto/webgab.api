@@ -6,7 +6,9 @@ const app = express();
 // Get All Sistemas
 app.get('/api/sistemas/', controller.findAll);
 app.post('/api/sistemas/add', controller.addOne);
-app.get('/api/sistemas/:tag', controller.findByTag);
+
+app.get('/api/sistemas/tag/:tag', controller.findByTag);
+
 app.put('/api/sistemas/:name', controller.updateOne);
 
 // router.put('/api/sistemas/edit/:id', (req, res) => {

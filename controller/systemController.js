@@ -13,13 +13,19 @@ const findAll = async (_, res) => {
   }
 };
 const findByTag = async (req, res) => {
-  console.log(req.params.tag);
-  try {
-    const data = await System.find({ tags: req.params.tag.toLowerCase() }, {});
+  if (req.params.tag.length === 0) {
+    res.send('');
+  } else {
+    try {
+      const data = await System.find(
+        { tags: req.params.tag.toLowerCase() },
+        {}
+      );
 
-    res.send(data);
-  } catch (error) {
-    console.log(error);
+      res.send(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
 };
 const addOne = async (req, res) => {
